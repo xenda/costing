@@ -1,0 +1,34 @@
+#primary
+  .content
+    - form_for @proposal do |form|
+      #costing_header
+        #costing_data
+          %h2
+            Creando propuesta
+          %h3
+            cliente
+            %span#costing_client_name.editable=@proposal.client_name
+          
+        #costing_menu
+          = link_to "colapsar todo", "#", :id=>"link_collapse_all", :class=>"hide_link"
+      = render :partial=>"package", :collection=>@proposal.packages
+      .add_module.block
+        %a{ :href => "#" }
+          Agregar m&oacute;dulo
+      = form.submit "Grabar costeo"
+  /
+    content
+/
+  primary
+#secondary
+  .content
+    %h2
+      Roles por cotizaci&oacute;n
+    #roles_group= render :partial=>"roles_group"
+    /
+      roles_group
+    %h2#title_costing
+      Resumen Cotizaci&oacute;n
+    #costing_summary= render :partial=>"costing_summary"
+    /
+      costing_summary

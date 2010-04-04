@@ -1,0 +1,11 @@
+%tr{:class=>cycle("odd","even")}
+  %td.activity_name=activity.name
+  - value = rand(10) > 5 ? true : false
+  %td= check_box_tag "parallel", "", value
+  %td= text_field_tag "", rand(10)
+  %td= text_field_tag "", rand(10)
+  %td= text_field_tag "", rand(10)
+  %td= text_field_tag "", rand(10)
+  %td= text_field_tag "", rand(10)
+  %td= text_field_tag "", rand(10)
+  %td= text_field_tag "", rand(10)

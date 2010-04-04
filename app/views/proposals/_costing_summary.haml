@@ -1,0 +1,29 @@
+%table#modules_summary
+  %thead
+    %tr
+      %th
+      %th
+        días
+      %th
+        m+n
+      %th
+        IGV
+      %th
+        total
+  %tbody
+    = render :partial =>"package_summary", :collection=>@proposal.packages
+  %tfooter
+  %tr#summary_calculation
+    %td
+      .module_name.small
+        Total
+    %td
+      26
+    %td
+      26
+    %td
+      26
+    %td
+      26
+/
+  modules_summary

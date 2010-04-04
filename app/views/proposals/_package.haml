@@ -1,0 +1,53 @@
+.module
+  - fields_for package do |f|
+    %h4
+      %span.module_name=package.name
+      .actions
+        =link_to "", "#", :class=>"hide_link edit", :id=>"edit_package_#{package.id}", :title=>"Editar"
+        =link_to "", "#", :class=>"hide_link delete", :id=>"delete_package_#{package.id}", :title=>"Eliminar"
+    .module_activities
+      %table.activities_group
+        %thead
+          %tr
+            %th{:class=>"activity_name"} Actividad
+            %th Paralelo
+            %th Dias
+            - @roles.each do |role|
+              %th=truncate(role.name,3,"")
+        %tbody= render :partial => "activity", :collection => package.activities
+      %table.module_summary_group  
+        %tbody.module_summary
+          %tr
+            %td.title Costo variable ajustado
+            %td.currency S/.
+            %td.total= f.text_field :variable_cost
+          %tr.even
+            %td.title Factor de costo fijo
+            %td.currency S/.
+            %td.total= f.text_field :fixed_cost
+          %tr
+            %td.title Costo antes de aplicar margen
+            %td.currency S/.
+            %td.total=  package.costs
+          %tr.even
+            %td.title Margen de ganancia
+            %td.currency S/.
+            %td.total=  f.text_field :profit_margin
+          %tr
+            %td.title Margen de negociación
+            %td.currency S/.
+            %td.total=  f.text_field :negotiation_margin
+          %tr.even
+            %td.title Costo total
+            %td.currency S/.
+            %td.total=  package.net_costs
+          %tr
+            %td.title IGV
+            %td.currency S/.
+            %td.total=  package.taxes
+          %tr.even.total
+            %td.title Precio de venta
+            %td.currency S/.
+            %td.total=  f.text_field :final_price
+
+    .module_costs

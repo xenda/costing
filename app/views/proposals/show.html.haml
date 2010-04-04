@@ -1,0 +1,30 @@
+#primary
+  .content
+    #costing_header
+      #costing_data
+        %h2= "Viendo propuesta #{@proposal.id}"
+        %h3
+          cliente
+          %span#costing_client_name.editable=@proposal.client_name
+          
+      #costing_menu
+        = link_to "colapsar todo", "#", :id=>"link_collapse_all", :class=>"hide_link"
+    = render :partial=>"package", :collection=>@proposal.packages
+    %button
+      Editar propuesta
+  /
+    content
+/
+  primary
+#secondary
+  .content
+    %h2
+      Roles por cotizaci&oacute;n
+    #roles_group= render :partial=>"roles_group"
+    /
+      roles_group
+    %h2#title_costing
+      Resumen Cotizaci&oacute;n
+    #costing_summary= render :partial=>"costing_summary"
+    /
+      costing_summary
