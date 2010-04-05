@@ -54,7 +54,8 @@ div#header {
 #header div.content h1 {
 	float: left;
 	margin: 0px;
-	margin-left: 26em;
+	margin-top: -1em;
+	margin-left: 19em;
 }
 
 #header div.content h1 a {
@@ -355,21 +356,25 @@ input#proposal_submit {
 
 /* @group Secondary */
 
+h2#title_costing {
+	cursor: pointer;
+}
+
 div#secondary {
-	margin-top: 4em;
+	width: 26em;
 	position: fixed;
-	right: 12.5em;	
-	top:  4em;
+	right: 10.5em;	
+	bottom:  0em;
 }
 
 #roles_group {
-	margin-bottom: 2em;
+	margin-bottom: 1em;
 }
 
 #roles_group ul {
 	margin-left: 0em;
 	color: #969696;
-	margin-bottom: 1em;
+	margin-bottom: 0.5em;
 }
 
 #roles_group:hover div.add_role{
@@ -446,7 +451,7 @@ div#secondary {
 
 
 #secondary div.content {
-	width: 24em;
+	width: auto;
 }
 
 table#modules_summary {
@@ -456,12 +461,10 @@ table#modules_summary {
 		border: none;
 }
 
-
-
 table#modules_summary th,
 table#modules_summary td {
 	text-align: center;
-	padding: 4px 8px;
+	padding: 4px 3px;
 	border: none;
 
 }
@@ -479,6 +482,39 @@ td:hover {
 	background-color: #fff587;
 }
 
+table#modules_summary td:hover {
+		/*font-size: 1.3em;*/
+}
+
+table#modules_summary td:hover div.module_name.small {
+	/*font-size: 0.75em !important;*/
+}
+
+#expand_package_summary {
+	background: url(../images/icons/arrow_divide.png) no-repeat scroll;
+	display: block;
+	height: 16px;
+	width: 16px;
+	text-indent: -9000em;
+	margin-left: 12.75em;
+	visibility: hidden;
+}
+
+a#expand_package_summary.merge {
+	background: url(../images/icons/arrow_join.png) no-repeat scroll;
+	display: block;
+	height: 16px;
+	width: 16px;
+	text-indent: -9000em;
+	margin-left: 12.75em;
+	
+}
+
+#costing_summary:hover a#expand_package_summary {
+	visibility: visible;
+}
+
+
 tr#summary_calculation {
 	border-top: 2px solid #b7baba;
 }
@@ -486,6 +522,10 @@ tr#summary_calculation {
 tr#summary_calculation td {
 		padding-top: 1em
 }
+
+
+
+
 
 /* @end */
 

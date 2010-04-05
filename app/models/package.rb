@@ -1,7 +1,8 @@
 class Package < ActiveRecord::Base
   
   belongs_to :proposal
-  has_many :activities
+  has_many :package_activities
+  has_many :activities, :through => :package_activities
   
   attr_accessor :final_price
   
@@ -12,7 +13,11 @@ class Package < ActiveRecord::Base
   end
   
   def net_costs
-    costs + profit_margin + negotiation_margin
+    costs + margins
+  end
+  
+  def margins
+    profit_margin + negotiation_margin
   end
   
   def taxes
@@ -24,7 +29,8 @@ class Package < ActiveRecord::Base
   end
   
   def days
-    self.activities.sum(&:)
+    days = self.package_activities.inject{|sum,i| sum + i.days} || 0
+    days
   end
   
   

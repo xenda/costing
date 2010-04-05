@@ -1,12 +1,16 @@
 %tr{:class=>cycle("odd","even")}
   %td
-    .module_name.small{:title=>package_summary.name}= truncate(package_summary.name,23)
+    .module_name.small{:title=>package_summary.name}= truncate(package_summary.name,15)
   %td
-    26
+    = package_summary.days
   %td
-    26
+    = package_summary.margins
+  %td.profit_margins
+    = package_summary.profit_margin
+  %td.negotiation_margins
+    = package_summary.negotiation_margin
   %td
-    26
+    = package_summary.taxes
   %td
-    26
+    = package_summary.final_price
     

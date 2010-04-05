@@ -1,5 +1,32 @@
 class Proposal < ActiveRecord::Base
   has_many :packages
+  
+  def days
+    self.packages.inject(0){|sum,i| sum + i.days } || 0.00
+  end
+
+  def taxes
+    self.packages.inject(0){|sum,i| sum + i.taxes } || 0.00
+  end
+
+  def margins
+    self.packages.inject(0){|sum,i| sum + i.margins } || 0.00
+  end
+
+  def profit_margins
+    self.packages.inject(0){|sum,i| sum + i.profit_margin } || 0.00
+  end
+
+  def negotiation_margins
+    self.packages.inject(0){|sum,i| sum + i.negotiation_margin } || 0.00
+  end
+
+  def final_price
+    self.packages.inject(0){|sum,i| sum + i.final_price } || 0.00
+  end
+  
+  
+  
 end
 
 

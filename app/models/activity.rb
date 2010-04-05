@@ -1,5 +1,7 @@
 class Activity < ActiveRecord::Base
-  belongs_to :package
+  has_many :package_activities
+  has_many :packages, :through => :package_activities
+  
 end
 
 # == Schema Information

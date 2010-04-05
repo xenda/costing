@@ -1,16 +1,21 @@
+= link_to "expandir", "#",:class=>"hide_link", :id=>"expand_package_summary"
 %table#modules_summary
   %thead
     %tr
       %th
       %th
         días
-      %th
-        m+n
+      %th#margins
+        %span#text_margins m+n
+      %th#profit
+        %span#text_profit m
+      %th#negociation
+        %span#text_negociation n
       %th
         IGV
       %th
         total
-  %tbody
+  %tbody#packages_totals
     = render :partial =>"package_summary", :collection=>@proposal.packages
   %tfooter
   %tr#summary_calculation
@@ -18,12 +23,16 @@
       .module_name.small
         Total
     %td
-      26
+      = @proposal.days
     %td
-      26
+      = @proposal.margins
+    %td.profit_margins
+      = @proposal.profit_margins
+    %td.negotiation_margins
+      = @proposal.negotiation_margins
     %td
-      26
+      = @proposal.taxes
     %td
-      26
+      = @proposal.final_price
 /
   modules_summary
